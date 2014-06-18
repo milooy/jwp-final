@@ -10,24 +10,17 @@ import next.model.Question;
 import core.mvc.Controller;
 
 public class ListController implements Controller {
-	private QuestionDao questionDao = new QuestionDao();
-	private List<Question> questions;
+//	private QuestionDao questionDao = new QuestionDao();
+//	private List<Question> questions;
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
-		questions = questionDao.findAll();
-//		question 추가 
-		String writer = request.getParameter("writer");
-		String title = request.getParameter("title");
-		String contents = request.getParameter("contents");
-		if (writer!=null) {
-			Question question = new Question(writer, title, contents);
-			questionDao.insert(question);
-			return "redirect:/list.next";
-		}
+		QuestionDao questionDao = new QuestionDao();
+		List<Question> questions;
 		
-//		question추가 완료 
+		
+		questions = questionDao.findAll();
 		request.setAttribute("questions", questions);
 		return "list.jsp";
 	}

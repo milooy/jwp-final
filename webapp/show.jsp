@@ -31,7 +31,7 @@
   	
 	<h3>답변</h3>
 	<div class="answerWrite">
-	<form method="post">
+	<form method="post" action="/api/addanswer.next">
 	<input type="hidden" name="questionId" value="${question.questionId}">
     <p>
         <label for="author">이름: </label>
@@ -90,7 +90,7 @@
 	    	<c:forEach items="${answers}" var="each">
 	    		<div class="comment">
 	    			<div class="comment-metadata">
-	    				<span class="comment-author">by${each.writer},</span>
+	    				<span class="comment-author">by ${each.writer},</span>
 	    				<span class="comment-date">${each.createdDate}</span>
 	    			</div>
 	    			<div class="comment-content">

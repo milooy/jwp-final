@@ -1,6 +1,7 @@
 var formList = document.querySelectorAll('.answerWrite input[type=submit]');
 for ( var j=0 ; j < formList.length ; j++) {
 	formList[j].addEventListener('click', writeAnswers, false);
+	
 }
 
 function writeAnswers(e) {

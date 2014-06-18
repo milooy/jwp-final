@@ -15,6 +15,10 @@ public class Question {
 	
 	private int countOfComment;
 	
+	public void setCountOfComment(int countOfComment) {
+		this.countOfComment = countOfComment;
+	}
+
 	public Question(String writer, String title, String contents) {
 		this(0, writer, title, contents, new Date(), 0);
 	}	
