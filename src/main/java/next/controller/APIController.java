@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import next.dao.QuestionDao;
 import next.model.Question;
@@ -29,23 +28,12 @@ public class APIController implements Controller{
 		
 		questions = questionDao.findAll();
 		request.setAttribute("questions", questions);
-		
-//		GsonBuilder gb = new GsonBuilder();
-//		gb.serializeNulls();
-//		com.google.gson.Gson gson = gb.create();
 
 		com.google.gson.Gson gson = new Gson();
 
-		
 		String jsonStr = gson.toJson(questions);
-//		System.out.println("haha");
-//		System.out.println(jsonStr);
 		PrintWriter out = response.getWriter();
-		//out.println("<html><body>" + "hahaha" + "</body></html>"); 
 		out.println("<html><body>" + jsonStr + "</body></html>"); 
-		
-
-
 		
 		return "api";
 	}

@@ -82,7 +82,7 @@ public class QuestionDao {
 	public void countOfCommentPlus(long questionId, long countOfComment) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+		int rs;
 			con = ConnectionManager.getConnection();
 			String sql = "UPDATE questions SET countOfComment=?" + 
 					"WHERE questionId = ?";
@@ -90,7 +90,7 @@ public class QuestionDao {
 			pstmt.setLong(1, countOfComment+1);
 			pstmt.setLong(2, questionId);
 
-			rs = pstmt.executeQuery();
+			rs = pstmt.executeUpdate();
 	}
 
 	public Question findById(long questionId) throws SQLException {

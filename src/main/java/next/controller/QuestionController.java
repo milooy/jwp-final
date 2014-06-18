@@ -27,9 +27,9 @@ public class QuestionController implements Controller {
 		Answer answer = new Answer(writer, content, questionId);
 		System.out.println(answer);
 		answerDao.insert(answer);
-//		Question question = questionDao.findById(questionId);
-//		long countOfComment = question.getCountOfComment();
-//		questionDao.countOfCommentPlus(questionId, countOfComment);
+		Question question = questionDao.findById(questionId);
+		long countOfComment = question.getCountOfComment();
+		questionDao.countOfCommentPlus(questionId, countOfComment);
 		return "api";
 	}
 
