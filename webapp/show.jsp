@@ -48,7 +48,7 @@
     </div>
     
     <!-- comments start -->
-	<div class="comments">
+<%-- 	<div class="comments">
 	    <h3>
 	        댓글 수 : ${question.countOfComment}
 	    </h3>
@@ -82,6 +82,22 @@
 					아 그러고 보니 "안정"이라고 되어있네요. 저건 다른 의미인가.. ^^;;
 	            </div>
 	        </div>	    
+	</div> --%>
+	<div class="comments">
+	    <h3>
+	        댓글 수 : ${question.countOfComment}
+	    </h3>
+	    	<c:forEach items="${answers}" var="each">
+	    		<div class="comment">
+	    			<div class="comment-metadata">
+	    				<span class="comment-author">by${each.writer},</span>
+	    				<span class="comment-date">${each.createdDate}</span>
+	    			</div>
+	    			<div class="comment-content">
+	    				<div class="about">내용 : </div>${each.contents}
+	    			</div>
+	    		</div>
+	    	</c:forEach>
 	</div>
 	<!-- comments end -->
 	
